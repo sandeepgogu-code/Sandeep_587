@@ -62,6 +62,9 @@
       <label for="fname">First Name</label>
       <input type="text" id="fname" name="fname">
 
+      <label for="mname">Middle Name</label>
+      <input type="text" id="mname" name="mname">
+
       <label for="lname">Last Name</label>
       <input type="text" id="lname" name="lname">
 
@@ -104,6 +107,7 @@
   <script>
     function validateForm() {
       const fname = document.getElementById("fname").value.trim();
+      const mname = document.getElementById("mname").value.trim();
       const lname = document.getElementById("lname").value.trim();
       const dob = document.getElementById("dob").value;
       const email = document.getElementById("email").value.trim();
@@ -114,7 +118,7 @@
       const branch = document.getElementById("branch").value;
 
       // Basic validation
-      if (!fname || !lname || !dob || !email || !gender || !phone || !address || !branch) {
+      if (!fname || !mname ||!lname || !dob || !email || !gender || !phone || !address || !branch) {
         alert("Please fill all the fields.");
         return false;
       }
