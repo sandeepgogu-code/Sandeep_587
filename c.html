@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration</title>
+  <style>
+    body{font-family:Arial;background:#fff;display:flex;justify-content:center;margin:0}
+    .box{width:350px;background:yellow;padding:20px;border:2px solid #000;margin:20px}
+    h2{text-align:center;margin:10px 0}
+    label{display:block;margin-top:10px;font-weight:bold}
+    input,textarea,select{width:100%;padding:7px;margin-top:5px;box-sizing:border-box}
+    input[type=radio],input[type=checkbox]{width:auto;margin-right:5px}
+    .btns{text-align:center;margin-top:15px}
+    .btns input{padding:8px 18px;font-weight:bold;margin:0 5px;cursor:pointer}
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Registration</h2>
+    <form onsubmit="return validate()">
+      <label>First Name</label><input id="fname">
+      <label>Last Name</label><input id="lname">
+      <label>DOB</label><input type="date" id="dob">
+      <label>Email</label><input type="email" id="email">
+      <label>Gender</label>
+      <input type="radio" name="g" value="M">Male
+      <input type="radio" name="g" value="F">Female
+      <label>Phone</label><input id="phone">
+      <label>Address</label><textarea id="address"></textarea>
+      <label><input type="checkbox" id="terms">Accept terms</label>
+      <label>Branch</label>
+      <select id="branch">
+        <option value="">--Select--</option>
+        <option>CSE</option><option>ECE</option><option>EEE</option>
+        <option>MECH</option><option>CIVIL</option>
+      </select>
+      <div class="btns">
+        <input type="submit" value="Submit"><input type="reset">
+      </div>
+    </form>
+  </div>
+
+  <script>
+    function validate(){
+      let f=fname.value.trim(),l=lname.value.trim(),d=dob.value,e=email.value.trim(),
+          g=document.querySelector('input[name="g"]:checked'),
+          p=phone.value.trim(),a=address.value.trim(),t=terms.checked,b=branch.value;
+      if(!f||!l||!d||!e||!g||!p||!a||!b){alert("Fill all fields");return false;}
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)){alert("Invalid email");return false;}
+      if(!/^\d{10}$/.test(p)){alert("Phone must be 10 digits");return false;}
+      if(!t){alert("Accept terms");return false;}
+      alert("Form submitted successfully!");return true;
+    }
+  </script>
+</body>
+</html>
